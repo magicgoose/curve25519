@@ -1,5 +1,5 @@
 OTPROOT=/usr/lib/erlang
-INCLUDES = -I/usr/lib/erlang/usr/include
+INCLUDES = -I/usr/local/lib/erlang/usr/include/
 
 # OS X flags.
 #GCCFLAGS = -O3 -fPIC -bundle -flat_namespace -undefined suppress -fno-common -Wall
@@ -18,7 +18,9 @@ BEAM = curve25519.beam
 
 all: $(DRIVER) $(BEAM)
 
-clean: 
+natives: $(DRIVER)
+
+clean:
 	rm -f *.o *.beam *.so
 
 curve25519_donna_nif.so: curve25519-donna.c curve25519_donna_nif.c
